@@ -1,0 +1,1 @@
+export { CreatePersonDto } from './create-person.dto'
