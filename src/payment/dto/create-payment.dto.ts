@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreatePaymentContractDto {
+export class CreatePaymentDto {
   @ApiProperty()
   readonly sum: number;
 
@@ -11,7 +11,7 @@ export class CreatePaymentContractDto {
   readonly payDateTime: Date;
   
   @ApiProperty()
-  readonly contract: number;
+  readonly treaty: number;
 
   @ApiProperty()
   readonly comment: string;

@@ -14,6 +14,9 @@ export class ProgramEntity {
   @Column({ type: 'varchar', length: 15 })
   serialNumber: string;
 
+  @Column({type: 'float', default: 0.00})
+  cost: number
+
   @Column({ type: 'varchar', length: 300 })
   description: string;
 }

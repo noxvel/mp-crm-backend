@@ -8,8 +8,7 @@ import { ContractModule } from './contract/contract.module';
 import { AgreementModule } from './agreement/agreement.module';
 import { PersonModule } from './person/person.module';
 import { CompanyModule } from './company/company.module';
-import { PaymentContractModule } from './payment-contract/payment-contract.module';
-import { PaymentAgreementModule } from './payment-agreement/payment-agreement.module';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
@@ -31,8 +30,7 @@ import { PaymentAgreementModule } from './payment-agreement/payment-agreement.mo
     AgreementModule,
     PersonModule,
     CompanyModule,
-    PaymentContractModule,
-    PaymentAgreementModule
+    PaymentModule
   ],
   controllers: [],
   providers: [],

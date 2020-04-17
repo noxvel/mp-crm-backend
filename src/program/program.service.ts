@@ -44,6 +44,7 @@ export class ProgramService {
     p.name = mpData.name;
     p.serialNumber = mpData.serialNumber;
     p.description = mpData.description;
+    p.cost = mpData.cost;
 
     const newP = await this.programRepository.save(p);
 

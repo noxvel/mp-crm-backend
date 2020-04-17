@@ -6,10 +6,10 @@ import { ContractEntity } from './contract.entity';
 import { PersonEntity } from '../person/person.entity';
 import { ProgramEntity } from '../program/program.entity';
 import { PersonModule } from '../person/person.module';
-import { PaymentContractModule } from '../payment-contract/payment-contract.module';
+import { PaymentModule } from '../payment/payment.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ContractEntity, PersonEntity, ProgramEntity]), PersonModule, PaymentContractModule],
+  imports: [TypeOrmModule.forFeature([ContractEntity, PersonEntity, ProgramEntity]), PersonModule, PaymentModule],
   providers: [ContractService],
   controllers: [ContractController]
 })

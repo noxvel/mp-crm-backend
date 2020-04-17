@@ -6,6 +6,6 @@ import { ContractEntity } from '../contract/contract.entity';
 export class PaymentContractEntity extends PaymentBaseEntity{
 
   @ManyToOne(type => ContractEntity, contract => contract.payments, {eager: true})
-  contract: ContractEntity;
+  treaty: ContractEntity;
 
 }

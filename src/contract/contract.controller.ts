@@ -10,12 +10,10 @@ import {
   Delete,
 } from '@nestjs/common';
 
-import { ContractEntity } from './contract.entity';
 import { ContractService } from './contract.service';
-
 import { CreateContractDto } from './dto';
 import { ContractRO, ContractsRO } from './contract.interface';
-import { PaymentContractService } from 'src/payment-contract/payment-contract.service';
+import { PaymentContractService } from 'src/payment/payment.service';
 
 import {
   ApiTags,
@@ -29,7 +27,7 @@ import {
 export class ContractController {
   constructor(
     private readonly contractService: ContractService,
-    private readonly paymentContractService: PaymentContractService,
+    private readonly paymentService: PaymentContractService,
   ) {}
 
   @Get('list')
@@ -74,6 +72,6 @@ export class ContractController {
   @ApiResponse({ status: 403, description: 'Forbidden.' })
   @Get(':id/paymets')
   async findPayments(@Param() params) {
-    return this.paymentContractService.findByContract(params.id);
+    return this.paymentService.findByTreatyId(params.id);
   }
 }

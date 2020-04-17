@@ -8,5 +8,8 @@ export class CreateProgramDto {
   readonly serialNumber: string;
 
   @ApiProperty()
+  readonly cost: number
+
+  @ApiProperty()
   readonly description: string;
 }

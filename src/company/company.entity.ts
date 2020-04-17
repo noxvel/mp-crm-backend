@@ -8,7 +8,7 @@ export class CompanyEntity extends ClientBaseEntity{
   @Column({ type: 'varchar', length: 20, default: '' })
   okpo: string;
 
-  @OneToMany(type => AgreementEntity, agreement => agreement.company)
+  @OneToMany(type => AgreementEntity, agreement => agreement.owner)
   agreements: AgreementEntity[];
 
 }
