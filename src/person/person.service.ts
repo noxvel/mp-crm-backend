@@ -4,7 +4,7 @@ import { PersonEntity } from './person.entity';
 import { Repository, Like } from 'typeorm';
 import { CreatePersonDto } from './dto';
 import { PersonRO, PersonsRO } from './person.interface'
-import { SimpleResponse } from 'src/common.interface';
+import { SimpleResponse } from '../common.interface';
 
 @Injectable()
 export class PersonService {

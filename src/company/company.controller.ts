@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Query, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query, Put, Delete, UseGuards } from '@nestjs/common';
 
 import { CompanyService } from './company.service';
 
@@ -8,8 +8,12 @@ import { CompanyRO, CompanysRO } from './company.interface';
 import {
   ApiTags,
   ApiResponse,
+  ApiBearerAuth
 } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
 @ApiTags('company')
 @Controller('company')
 export class CompanyController {

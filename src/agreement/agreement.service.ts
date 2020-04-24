@@ -6,7 +6,7 @@ import { ProgramEntity } from '../program/program.entity';
 import { Repository, Like, DeleteResult } from 'typeorm';
 import { CreateAgreementDto } from './dto';
 import { AgreementRO, AgreementsRO } from './agreement.interface';
-import { SimpleResponse } from 'src/common.interface';
+import { SimpleResponse } from '../common.interface';
 
 @Injectable()
 export class AgreementService {

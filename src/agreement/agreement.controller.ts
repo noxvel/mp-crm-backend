@@ -5,7 +5,7 @@ import {
   Body,
   Param,
   Query,
-  Request,
+  UseGuards,
   Put,
   Delete,
 } from '@nestjs/common';
@@ -14,7 +14,7 @@ import { AgreementService } from './agreement.service';
 
 import { CreateAgreementDto } from './dto';
 import { AgreementRO, AgreementsRO } from './agreement.interface';
-import { PaymentAgreementService} from 'src/payment/payment.service';
+import { PaymentAgreementService} from '../payment/payment.service';
 
 import {
   ApiTags,
@@ -22,7 +22,10 @@ import {
   ApiResponse,
   ApiOperation,
 } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
 @ApiTags('agreement')
 @Controller('agreement')
 export class AgreementController {

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Query, Request, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query, UseGuards, Put, Delete } from '@nestjs/common';
 
 import { PaymentService, PaymentContractService, PaymentAgreementService } from './payment.service';
 
@@ -14,7 +14,10 @@ import {
   ApiParam,
   ApiOperation,
 } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
 @ApiTags('payment')
 @Controller('payment')
 export class PaymentController {

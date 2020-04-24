@@ -18,6 +18,9 @@ export class UserEntity {
   @Column({default: ''})
   avatar: string;
 
+  @Column("simple-array",{default: ["editor"]})
+  roles: string[];
+
   @Column()
   password: string;
 

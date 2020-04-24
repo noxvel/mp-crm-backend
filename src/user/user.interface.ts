@@ -1,3 +1,5 @@
+import { UserEntity } from './user.entity'
+
 // export interface UserData {
 //   username: string;
 //   email: string;
@@ -10,15 +12,15 @@
 //   user: UserData;
 // }
 
-export interface UserData {
+export interface UserRO {
   name: string;
   email: string;
-  image?: string;
+  roles: string[];
+  avatar?: string;
 }
 
-export interface UserRO {
-  user: UserData;
-  token: string
+export interface UsersRO {
+  users: UserEntity[];
 }
 
 interface ResDataLogin {

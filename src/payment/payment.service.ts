@@ -7,7 +7,7 @@ import { CreatePaymentDto } from './dto';
 import { ContractEntity } from '../contract/contract.entity';
 import { AgreementEntity } from '../agreement/agreement.entity';
 import { PaymentRO, PaymentsRO } from './payment.interface';
-import { SimpleResponse } from 'src/common.interface';
+import { SimpleResponse } from '../common.interface';
 
 export interface PaymentService {
   findAll(config): Promise<PaymentsRO>

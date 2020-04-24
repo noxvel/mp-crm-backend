@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Query, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query, Put, Delete, UseGuards } from '@nestjs/common';
 
 import { PersonEntity } from './person.entity';
 import { PersonService } from './person.service';
@@ -9,8 +9,12 @@ import { PersonRO, PersonsRO } from './person.interface';
 import {
   ApiTags,
   ApiResponse,
+  ApiBearerAuth
 } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
 @ApiTags('person')
 @Controller('person')
 export class PersonController {

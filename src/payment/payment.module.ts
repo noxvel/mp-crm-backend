@@ -4,7 +4,7 @@ import { PaymentService, PaymentContractService, PaymentAgreementService } from 
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ContractEntity } from '../contract/contract.entity';
 import { PaymentContractEntity } from './payment-contract.entity';
-import { AgreementEntity } from 'src/agreement/agreement.entity';
+import { AgreementEntity } from '../agreement/agreement.entity';
 import { PaymentAgreementEntity } from './payment-agreement.entity';
 
 @Module({

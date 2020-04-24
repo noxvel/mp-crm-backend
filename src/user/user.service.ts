@@ -3,13 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, getRepository, DeleteResult } from 'typeorm';
 import { UserEntity } from './user.entity';
 import {CreateUserDto, LoginUserDto, UpdateUserDto} from './dto';
-// const jwt = require('jsonwebtoken');
 // import { SECRET } from '../config';
 import { UserRO } from './user.interface';
 import { validate } from 'class-validator';
 import { HttpException } from '@nestjs/common/exceptions/http.exception';
 import { HttpStatus } from '@nestjs/common';
 import * as crypto from 'crypto';
+
+// const jwt = require('jsonwebtoken');
 
 @Injectable()
 export class UserService {
@@ -29,6 +30,10 @@ export class UserService {
     };
 
     return await this.userRepository.findOne(findOneOptions);
+  }
+
+  async findOneByName(name: string): Promise<UserEntity | undefined> {
+    return await this.userRepository.findOne({name: name});
   }
 
   async create(dto: CreateUserDto): Promise<UserRO> {
@@ -102,37 +107,25 @@ export class UserService {
 
   //   return jwt.sign({
   //     id: user.id,
-  //     username: user.username,
+  //     user: user.name,
   //     email: user.email,
   //     exp: exp.getTime() / 1000,
   //   }, SECRET);
   // };
 
-  private buildUserRO(user: UserEntity) {
-    // const userRO = {
-    //   username: user.username,
-    //   email: user.email,
-    //   bio: user.bio,
-    //   token: this.generateJWT(user),
-    //   image: user.image
-    // };
+  // public async validateJWT(token) {
+  //     return await jwt.verify(token, SECRET);
+  // };
 
-    // return {user: userRO};
+  private buildUserRO(user: UserEntity) {
 
     const userRO = {
       name: user.name,
       email: user.email,
-      image: user.avatar
+      roles: user.roles,
+      avatar: user.avatar
     };
 
-    const tokens = {
-      admin: {
-        token: 'admin-token'
-      },
-      editor: {
-        token: 'editor-token'
-      }
-    }
-    return {user: userRO, token: tokens.admin.token}
+    return userRO;
   }
 }

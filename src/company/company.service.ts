@@ -4,7 +4,7 @@ import { CompanyEntity } from './company.entity';
 import { Repository, Like } from 'typeorm';
 import { CreateCompanyDto } from './dto';
 import { CompanyRO, CompanysRO } from './company.interface'
-import { SimpleResponse } from 'src/common.interface';
+import { SimpleResponse } from '../common.interface';
 
 @Injectable()
 export class CompanyService {

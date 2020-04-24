@@ -14,6 +14,7 @@ async function bootstrap() {
       .setTitle('MP API')
       .setDescription('My medical programs API')
       .setVersion('1.0')
+      .addBearerAuth()
       .build());
   
     SwaggerModule.setup('docs', app, document);

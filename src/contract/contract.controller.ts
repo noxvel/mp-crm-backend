@@ -5,7 +5,7 @@ import {
   Body,
   Param,
   Query,
-  Request,
+  UseGuards,
   Put,
   Delete,
 } from '@nestjs/common';
@@ -13,7 +13,7 @@ import {
 import { ContractService } from './contract.service';
 import { CreateContractDto } from './dto';
 import { ContractRO, ContractsRO } from './contract.interface';
-import { PaymentContractService } from 'src/payment/payment.service';
+import { PaymentContractService } from '../payment/payment.service';
 
 import {
   ApiTags,
@@ -21,7 +21,10 @@ import {
   ApiResponse,
   ApiOperation,
 } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
+@ApiBearerAuth()
 @ApiTags('contract')
 @Controller('contract')
 export class ContractController {

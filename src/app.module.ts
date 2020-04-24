@@ -9,6 +9,7 @@ import { AgreementModule } from './agreement/agreement.module';
 import { PersonModule } from './person/person.module';
 import { CompanyModule } from './company/company.module';
 import { PaymentModule } from './payment/payment.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -30,7 +31,8 @@ import { PaymentModule } from './payment/payment.module';
     AgreementModule,
     PersonModule,
     CompanyModule,
-    PaymentModule
+    PaymentModule,
+    AuthModule
   ],
   controllers: [],
   providers: [],
